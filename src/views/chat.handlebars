@@ -1,0 +1,27 @@
+<body class="chat">
+
+    <form>
+        <label for="user">Ingrese su nombre de usuario:</label>
+        <input type="text" class="form-control custom-input" id="user" name="user" required>
+        <label for="message">Mensaje:</label>
+        <input type="text" class="form-control custom-input" id="message" name="message" required>
+        <button id="createMsg" type="button" class="btn custom-button" onclick="sendMessage()">Enviar Mensaje</button>
+    </form>
+
+
+
+    {{#each messagesList}}
+
+    <div class="messageItem">
+        <div class="user">{{this.user}}:</div>
+        <div class="message">{{this.message}}</div>
+    </div>
+</body>
+
+
+{{/each}}
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/chat.js"></script>
+

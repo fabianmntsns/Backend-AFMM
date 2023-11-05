@@ -1,0 +1,71 @@
+<h3>Bienvenido: {{user.first_name }} {{ user.last_name}} <a href="/profile"> {{user.email}} </a> - Role: {{ user.role}}
+    | <a href="/api/sessions/logout"> Cerrar sesión</a> </h3>
+
+<h2>Lista de productos</h2>
+
+{{#each products}}
+
+<body>
+    <div class="CardItem">
+        <div>
+            <a href="http://localhost:8080/products/{{this._id}}">
+                <h2 class="ItemHeader">
+                    {{this.title}}
+                </h2>
+            </a>
+        </div>
+        <div>
+            <img class="ItemImg" src="{{this.thumbnail}}" alt="">
+        </div>
+        <div>
+            <p className="Info">
+                {{description}}</p>
+
+        </div>
+        <div>
+            <p className="Info">
+                Precio: {{this.price}}</p>
+        </div>
+        <button id="atcButton" type="button" class="btn custom-button" onclick="addToCart('{{this._id}}')">Añadir al
+            carrito</button>
+    </div>
+</body>
+
+{{/each}}
+
+<div align="center">
+    {{#if paginateInfo.hasPrevPage}}
+    <a href="{{paginateInfo.prevLink}}">Anterior</a>
+    {{/if}}
+    {{#each paginateInfo.totalPages}}
+    <a href="{{this.link}}">{{this.page}}</a>
+    {{/each}}
+    {{#if paginateInfo.hasNextPage}}
+    <a href="{{paginateInfo.nextLink}}">Siguiente</a>
+    {{/if}}
+    <button id="gtcButton" type="button" class="btn custom-button" onclick="goToCart()">Ir al carrito</button>
+</div>
+
+
+<script>
+    console.log("HOlAAA")
+    let cid = '{{user.cart}}'
+    const addToCart = (pid) => {
+
+        fetch(`/api/carts/${cid}/product/${pid}`,
+            {
+                method: 'post'
+            }
+
+        ).then(result => result.json()
+        ).then((result) => {
+            if (result.status === 'success') {
+                alert("Se agregó el producto.")
+            }
+        }).catch(err => alert(`Ocurrió un error ${err}`))
+    }
+
+    const goToCart = () => {
+        window.location.href = `http://localhost:8080/carts/${cid}`
+    }
+</script>

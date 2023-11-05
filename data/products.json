@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "title": "Camiseta Real Madrid",
+    "price": 55000,
+    "thumbnail": [
+      "https://cdn.shopify.com/s/files/1/0448/3609/4115/products/HF0292-RMCFMZ0075-02_500x480.jpg?v=1655974535"
+    ],
+    "status": true,
+    "stock": 10,
+    "description": "Camiseta Oficial Local Real Madrid ",
+    "code": "001"
+  },
+  {
+    "id": 2,
+    "title": "Short Real Madrid",
+    "price": 22000,
+    "thumbnail": [
+      "https://cdn.shopify.com/s/files/1/0448/3609/4115/products/RMCFMP0092-02_500x480.jpg?v=1654202686"
+    ],
+    "status": true,
+    "stock": 16,
+    "description": "Short Local Real Madrid",
+    "code": "002"
+  },
+  {
+    "id": 3,
+    "title": "Camiseta Real Madrid",
+    "price": 50000,
+    "thumbnail": [
+      "https://cdn.shopify.com/s/files/1/0448/3609/4115/products/RMCFMZ0076_UCL_3fc6fe82-f8b4-44c0-9867-1e0cf3a4bbc0_500x480.jpg?v=1676407522"
+    ],
+    "status": true,
+    "stock": 10,
+    "description": "Camiseta Oficial Visitante Real Madrid",
+    "code": "003"
+  },
+  {
+    "id": 4,
+    "title": "Camiseta Real Madrid",
+    "price": 50000,
+    "thumbnail": [
+      "https://cdn.shopify.com/s/files/1/0448/3609/4115/products/HI1657_RMCFMZ0082-01_500x480.jpg?v=1662378043"
+    ],
+    "status": true,
+    "stock": 16,
+    "description": "Camiseta Oficial Tercera Equipación",
+    "code": "004"
+  },
+  {
+    "id": 5,
+    "title": "Short Real Madrid",
+    "price": 22000,
+    "thumbnail": [
+      "https://cdn.shopify.com/s/files/1/0448/3609/4115/products/RMCFMP0094-06_500x480.jpg?v=1662378063"
+    ],
+    "status": true,
+    "stock": 10,
+    "description": "Short Tercera Equipación",
+    "code": "005"
+  },
+  {
+    "id": 6,
+    "title": "Camiseta Real Madrid",
+    "price": 55000,
+    "thumbnail": [
+      "https://cdn.shopify.com/s/files/1/0448/3609/4115/products/RMCFMZ0112_Laliga_500x480.jpg?v=1676404077"
+    ],
+    "status": true,
+    "stock": 16,
+    "description": "Equipación Portero",
+    "code": "006"
+  },
+  {
+    "id": 7,
+    "title": "Buzo Real Madrid",
+    "price": 42000,
+    "thumbnail": [
+      "https://cdn.shopify.com/s/files/1/0448/3609/4115/products/RMCFMS0199-03_500x480.jpg?v=1680624990"
+    ],
+    "status": true,
+    "stock": 10,
+    "description": "Buzo Sakura Unisex Bordado Morado",
+    "code": "007"
+  },
+  {
+    "id": 8,
+    "title": "Short Real Madrid Kids",
+    "price": 12000,
+    "thumbnail": [
+      "https://cdn.shopify.com/s/files/1/0448/3609/4115/products/RMCFMP0094-06_500x480.jpg?v=1662378063"
+    ],
+    "status": true,
+    "stock": 4,
+    "description": "Short Tercera Equipación",
+    "code": "008"
+  },
+  {
+    "id": 9,
+    "title": "Camiseta Real Madrid Kids",
+    "price": 45000,
+    "thumbnail": [
+      "https://cdn.shopify.com/s/files/1/0448/3609/4115/products/RMCFMZ0112_Laliga_500x480.jpg?v=1676404077"
+    ],
+    "status": true,
+    "stock": 3,
+    "description": "Equipación Portero",
+    "code": "009"
+  },
+  {
+    "id": 10,
+    "title": "Buzo Real Madrid Kids",
+    "price": 32000,
+    "thumbnail": [
+      "https://cdn.shopify.com/s/files/1/0448/3609/4115/products/RMCFMS0199-03_500x480.jpg?v=1680624990"
+    ],
+    "status": true,
+    "stock": 2,
+    "description": "Buzo Sakura Unisex Bordado Morado",
+    "code": "010"
+  }
+]

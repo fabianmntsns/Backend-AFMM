@@ -1,0 +1,51 @@
+<div>
+    <h1 className="Info">
+        {{prod.title}}</h1>
+
+</div>
+<div>
+    <h2 className="Info">
+        {{prod.description}}</h2>
+
+</div>
+<div>
+    <p className="Info">
+        {{prod.price}}</p>
+
+</div>
+<div>
+    <p className="Info">
+        {{prod.stock}}</p>
+
+</div>
+<div>
+    <p className="Info">
+        {{prod.code}}</p>
+
+</div>
+<button id="atcButton" type="button" class="btn custom-button" onclick="addToCart('{{prod._id}}')">Añadir al
+    carrito</button>
+
+<button id="goBackButton" type="button" class="btn custom-button" onclick="goBack()">Volver a los productos</button>
+
+<script>
+    let cid
+    const addToCart = (pid) => {
+
+        fetch(`/api/carts/${cid}/product/${pid}`,
+            {
+                method: 'post'
+            }
+
+        ).then(result => result.json()
+        ).then((result) => {
+            if (result.status === 'success') {
+                alert("Se agregó el producto.")
+            }
+        }).catch(err => alert(`Ocurrió un error ${err}`))
+    }
+
+    const goBack = () => {
+        window.location.href = `http://localhost:8080/products`
+    }
+</script>
