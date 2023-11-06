@@ -4,6 +4,7 @@ import local from "passport-local";
 import UserModel from "../dao/models/user.model.js";
 import { createHash, isValidPassword } from "../utils.js";
 import CartModel from "../dao/models/carts.model.js";
+import config from "./config.js";
 
 const localStrategy = local.Strategy
 
@@ -35,37 +36,53 @@ const initializePassport = () => {
 
     passport.use('login', new localStrategy({
         usernameField: 'email'
-    }, async(username, password, done) => {
+    }, async (username, password, done) => {
         try {
-           const user = await UserModel.findOne({ email: username})
-           if(!user){
-            return done( null, false )
-           } 
-           if(!isValidPassword(user, password)) return done(null, false)
-           return done(null, user)
+            if (username === config.admin.email && password === config.admin.password) {
+                console.log("admin")
+                const user = {
+                    _id: "adm1n",
+                    first_name: " ",
+                    last_name: " ",
+                    email: username,
+                    age: " ",
+                    cart: " ",
+                    role: "admin",
+                }
+                console.log(user)
+                return done(null, user)
+
+            }
+
+            const user = await UserModel.findOne({ email: username })
+            if (!user) {
+                return done(null, false)
+            }
+            if (!isValidPassword(user, password)) return done(null, false)
+            return done(null, user)
         } catch (err) {
-            
+
         }
     }))
 
     passport.use('github', new GithubStrategy({
-        clientID: 'Iv1.d4144bad5954fca1',
-        clientSecret: '547e923a021f4215986366cbcebcadc34daa551d',
-        callbackURL: 'http://localhost:8080/session/githubcallback'
-    }, async(accessToken, refreshToken, profile, done) => {
+        clientID: config.github.client_id,
+        clientSecret: config.github.client_secret,
+        callbackURL: config.github.callback_url,
+    }, async (accessToken, refreshToken, profile, done) => {
         console.log(profile)
         try {
-            const user = await UserModel.findOne({ email: profile._json.email})
+            const user = await UserModel.findOne({ email: profile._json.email })
             if (user) return done(null, user)
             const newUser = await UserModel.create({
                 first_name: profile._json.name,
                 last_name: '',
-                email: profile._json.email, 
+                email: profile._json.email,
                 password: ''
             })
-            return done(null, newUser) 
+            return done(null, newUser)
         } catch (error) {
-            return done ('Error al loguearte con GitHub')
+            return done('Error al loguearte con GitHub')
         }
     }))
 
@@ -73,8 +90,8 @@ const initializePassport = () => {
         done(null, user._id)
     })
 
-    passport.deserializeUser(async(id, done) => {
-         const user = await UserModel.findById(id)
+    passport.deserializeUser(async (id, done) => {
+        const user = await UserModel.findById(id)
         done(null, user)
     })
 }

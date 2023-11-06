@@ -14,6 +14,7 @@ import session from "express-session";
 import MongoStore from "connect-mongo";
 import passport from "passport";
 import initializePassport from "./config/passport.config.js";
+import config from "./config/config.js";
 
 
 
@@ -28,10 +29,10 @@ app.set('view engine', 'handlebars')
 
 app.use(session({
      store: MongoStore.create({
-          mongoUrl: 'mongodb+srv://fabianmntsns:prueba@cluster0.b8afudm.mongodb.net',
-          dbName: 'sessions'
+          mongoUrl: config.mongo.url,
+          dbName: config.mongo.db_name,
      }),
-     secret: 'victoriasecret',
+     secret: config.mongo.secret,
      resave: true,
      saveUninitialized: true
 }))
@@ -51,10 +52,11 @@ app.use('/', viewsRouter)
 
 const mm = new MessageManagerDB()
 
-export const PORT = 8080
+export const PORT = config.apiserver.port
+const dbUrl= config.mongo.url_db
 
 try {
-     await mongoose.connect('mongodb+srv://fabianmntsns:prueba@cluster0.b8afudm.mongodb.net/ecommerce')
+     await mongoose.connect(dbUrl)
      console.log('DB connected')
 
 

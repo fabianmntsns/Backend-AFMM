@@ -10,7 +10,8 @@ export const loginController =  async (req, res) => {
     if(!req.user) {
         return res.status(400).send({ status: 'error', error: 'Datos incorrectos'})
     }
-
+    console.log("llega")
+    console.log(req.user)
     req.session.user = {
         first_name: req.user.first_name,
         last_name: req.user.last_name,
@@ -18,8 +19,7 @@ export const loginController =  async (req, res) => {
         age: req.user.age,
         cart: req.user.cart,
         role: req.user.role,
-
-    }   
+    }  
     res.redirect('/products')
 }
 
