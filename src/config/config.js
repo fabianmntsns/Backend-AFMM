@@ -21,6 +21,7 @@ export default {
     },
 
     admin: {
+        _id: process.env.ADMIN_ID,
         email: process.env.EMAIL_ADMIN,
         password: process.env.PASSWORD_ADMIN,
     }

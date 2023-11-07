@@ -39,19 +39,12 @@ const initializePassport = () => {
     }, async (username, password, done) => {
         try {
             if (username === config.admin.email && password === config.admin.password) {
-                console.log("admin")
                 const user = {
-                    _id: "adm1n",
-                    first_name: " ",
-                    last_name: " ",
-                    email: username,
-                    age: " ",
-                    cart: " ",
-                    role: "admin",
+                    "_id": config.admin._id,
+                    "email": config.admin.email,
+                    "role": "admin"
                 }
-                console.log(user)
                 return done(null, user)
-
             }
 
             const user = await UserModel.findOne({ email: username })
@@ -91,6 +84,15 @@ const initializePassport = () => {
     })
 
     passport.deserializeUser(async (id, done) => {
+        if (id === config.admin._id) {
+            const user = {
+                "_id": config.admin._id,
+                "email": config.admin.email,
+                "role": "admin"
+            }
+            return done(null, user)
+        }
+
         const user = await UserModel.findById(id)
         done(null, user)
     })
